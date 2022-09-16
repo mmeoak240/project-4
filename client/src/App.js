@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Route, Switch } from "react-router-dom";
+import Login from "./Login";
+import Signup from "./Signup";
+import NavBar from "./NavBar";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [user, setUser] = useState("");
+
+	const onLogin = (client) => {
+		setUser(client);
+	};
+
+	useEffect(() => {
+		fetch("/me").then((r) => {
+			if (r.ok) {
+				r.json().then((client) => setUser(client));
+			}
+		});
+	}, []);
+
+	return (
+		<>
+			<NavBar />
+			<Switch>
+				<Route path="/signup">
+					<Signup onLogin={onLogin} />
+				</Route>
+
+				<Route path="/login">
+					<Login />
+				</Route>
+			</Switch>
+		</>
+	);
 }
 
 export default App;
