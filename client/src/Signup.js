@@ -14,6 +14,7 @@ function SignUp({ onLogin }) {
 			password_confirmation: passwordConfirmation,
 			goals,
 		};
+
 		fetch("/signup", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
@@ -21,6 +22,9 @@ function SignUp({ onLogin }) {
 		})
 			.then((res) => res.json())
 			.then((client) => onLogin(client));
+		setUsername("");
+		setPassword("");
+		setPasswordConfirmation("");
 	}
 
 	return (

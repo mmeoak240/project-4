@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 
-function Login({ setClient }) {
+function Login({ onLogin }) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -14,15 +15,15 @@ function Login({ setClient }) {
 			body: JSON.stringify({ username, password }),
 		}).then((r) => {
 			if (r.ok) {
-				r.json().then((client) => setClient(client));
-				setUsername("");
-				setPassword("");
+				r.json().then((client) => onLogin(client));
 			}
+			setUsername("");
+			setPassword("");
 		});
 	}
 
 	return (
-		<div>
+		<Wrapper></Wrapper>
 			<form onSubmit={handleSubmit}>
 				<h1>Login</h1>
 				<label htmlFor="username">Username</label>
@@ -43,8 +44,15 @@ function Login({ setClient }) {
 				/>
 				<button type="submit">Login</button>
 			</form>
-		</div>
+		</Wrapper>
 	);
 }
+
+const Wrapper = styled.header`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 8px;
+`;
 
 export default Login;

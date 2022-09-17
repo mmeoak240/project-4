@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 import Login from "./Login";
-import Signup from "./Signup";
+import SignUp from "./Signup";
 import NavBar from "./NavBar";
+import HomePage from "./HomePage";
 
 function App() {
 	const [user, setUser] = useState("");
 
 	const onLogin = (client) => {
 		setUser(client);
+		console.log("worked");
 	};
 
 	useEffect(() => {
@@ -18,21 +20,47 @@ function App() {
 			}
 		});
 	}, []);
-
 	return (
 		<>
-			<NavBar />
-			<Switch>
-				<Route path="/signup">
-					<Signup onLogin={onLogin} />
-				</Route>
-
-				<Route path="/login">
-					<Login />
-				</Route>
-			</Switch>
+			<NavBar user={user} setUser={setUser} />
+			<main>
+				{user ? (
+					<Switch>
+						<Route path="/">
+							<HomePage user={user} />
+						</Route>
+					</Switch>
+				) : (
+					<Switch>
+						<Route path="/signup">
+							<SignUp onLogin={onLogin} />
+						</Route>
+						<Route path="/login">
+							<Login onLogin={onLogin} />
+						</Route>
+						<Route path="/">
+							<HomePage />
+						</Route>
+					</Switch>
+				)}
+			</main>
 		</>
 	);
+
+	// 	<>
+	// 		<NavBar />
+	// 		<div>{user ? <HomePage /> : null}</div>
+	// 		<Switch>
+	// 			<Route path="/signup">
+	// 				<Signup onLogin={onLogin} />
+	// 			</Route>
+
+	// 			<Route path="/login">
+	// 				<Login onLogin={onLogin} />
+	// 			</Route>
+	// 		</Switch>
+	// 	</>
+	// );
 }
 
 export default App;
