@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
   end
 
   def show
-    client = Client.find_by(id: session[:user_id])
+    client = Client.find_by(id: session[:client_id])
     render json: client
   end
 
