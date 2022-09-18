@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+
 
 function Login({ onLogin }) {
 	const [username, setUsername] = useState("");
@@ -23,7 +23,7 @@ function Login({ onLogin }) {
 	}
 
 	return (
-		<Wrapper></Wrapper>
+		<div>
 			<form onSubmit={handleSubmit}>
 				<h1>Login</h1>
 				<label htmlFor="username">Username</label>
@@ -44,15 +44,10 @@ function Login({ onLogin }) {
 				/>
 				<button type="submit">Login</button>
 			</form>
-		</Wrapper>
+		</div>
 	);
 }
 
-const Wrapper = styled.header`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 8px;
-`;
+
 
 export default Login;
