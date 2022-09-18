@@ -12,15 +12,23 @@ const NavBar = ({ user, setUser }) => {
 	return (
 		<header>
 			<div>
-				<NavLink to="/">Home</NavLink>
+				<NavLink to="/" class="navButton">
+					Home
+				</NavLink>
 			</div>
 			<div>
 				{user ? (
-					<button onClick={handleLogoutClick}>Logout</button>
+					<button onClick={handleLogoutClick} class="navButton">
+						Logout
+					</button>
 				) : (
 					<>
-						<NavLink to="/signup">Signup</NavLink>
-						<NavLink to="/login">Login</NavLink>
+						<NavLink to="/signup" class="navButton">
+							Signup
+						</NavLink>
+						<NavLink to="/login" class="navButton">
+							Login
+						</NavLink>
 					</>
 				)}
 			</div>

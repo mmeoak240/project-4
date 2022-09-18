@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 function Login({ onLogin }) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -23,7 +22,7 @@ function Login({ onLogin }) {
 	}
 
 	return (
-		<div>
+		<body>
 			<form onSubmit={handleSubmit}>
 				<h1>Login</h1>
 				<label htmlFor="username">Username</label>
@@ -43,11 +42,18 @@ function Login({ onLogin }) {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 				<button type="submit">Login</button>
+				<button type="submit">Signup</button>
+				<div class="social">
+					<div class="go">
+						<i class="fab fa-google"></i> Twitter
+					</div>
+					<div class="fb">
+						<i class="fab fa-facebook"></i> Facebook
+					</div>
+				</div>
 			</form>
-		</div>
+		</body>
 	);
 }
-
-
 
 export default Login;
