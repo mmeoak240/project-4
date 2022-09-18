@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 function Login({ onLogin }) {
 	const [username, setUsername] = useState("");
@@ -42,7 +43,11 @@ function Login({ onLogin }) {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 				<button type="submit">Login</button>
-				<button type="submit">Signup</button>
+
+				<NavLink to="/signup" class="navButton">
+					Signup
+				</NavLink>
+
 				<div class="social">
 					<div class="go">
 						<i class="fab fa-google"></i> Twitter
