@@ -4,6 +4,7 @@ import "./App.css";
 import Login from "./Login";
 import SignUp from "./Signup";
 import NavBar from "./NavBar";
+
 import HomePage from "./HomePage";
 
 function App() {
@@ -11,7 +12,6 @@ function App() {
 
 	const onLogin = (client) => {
 		setUser(client);
-		console.log("worked");
 	};
 
 	useEffect(() => {

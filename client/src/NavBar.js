@@ -18,7 +18,7 @@ const NavBar = ({ user, setUser }) => {
 			</div>
 			<div>
 				{user ? (
-					<button onClick={handleLogoutClick} class="navButton">
+					<button onClick={handleLogoutClick} id="logout">
 						Logout
 					</button>
 				) : (
