@@ -38,6 +38,9 @@ function App() {
 						<Route path="/login">
 							<Login onLogin={onLogin} />
 						</Route>
+						<Route path="/exercises">
+							<SignUp />
+						</Route>
 						<Route path="/">
 							<HomePage />
 						</Route>

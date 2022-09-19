@@ -16,6 +16,9 @@ const NavBar = ({ user, setUser }) => {
 				<NavLink to="/" class="navButton">
 					Home
 				</NavLink>
+				<NavLink to="/exercises" class="navButton">
+					Exercises
+				</NavLink>
 			</div>
 			<div>
 				{user ? (
