@@ -1,10 +1,10 @@
 import React from "react";
 import NavBar from "./NavBar";
 
-const HomePage = () => {
+const HomePage = ({ user, setUser }) => {
 	return (
 		<>
-			<NavBar />
+			<NavBar user={user} setUser={setUser} />
 			<div>
 				<h1>Home</h1>
 			</div>

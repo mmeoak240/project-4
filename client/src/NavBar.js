@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import Login from "./Login";
 
 const NavBar = ({ user, setUser }) => {
 	function handleLogoutClick() {
@@ -22,14 +23,7 @@ const NavBar = ({ user, setUser }) => {
 						Logout
 					</button>
 				) : (
-					<>
-						<NavLink to="/signup" class="navButton">
-							Signup
-						</NavLink>
-						<NavLink to="/login" class="navButton">
-							Login
-						</NavLink>
-					</>
+					<Login />
 				)}
 			</div>
 		</header>

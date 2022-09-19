@@ -44,9 +44,7 @@ function Login({ onLogin }) {
 				/>
 				<button type="submit">Login</button>
 
-				<NavLink to="/signup" class="navButton">
-					Signup
-				</NavLink>
+				<NavLink to="/signup">Signup</NavLink>
 
 				<div class="social">
 					<div class="go">

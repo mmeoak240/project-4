@@ -23,12 +23,11 @@ function App() {
 	}, []);
 	return (
 		<>
-			<NavBar user={user} setUser={setUser} />
 			<main>
 				{user ? (
 					<Switch>
 						<Route path="/">
-							<HomePage user={user} />
+							<HomePage user={user} setUser={setUser} />
 						</Route>
 					</Switch>
 				) : (

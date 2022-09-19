@@ -68,9 +68,7 @@ function SignUp({ onLogin }) {
 				/>
 
 				<button type="submit">Signup</button>
-				<NavLink to="/login" class="navButton">
-					Login
-				</NavLink>
+				<NavLink to="/login">Login</NavLink>
 			</form>
 		</div>
 	);
