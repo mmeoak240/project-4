@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ExerciseCard from "./ExerciseCard";
 
 const ExerciseContainer = () => {
 	const [exercises, setExercises] = useState();
