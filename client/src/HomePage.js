@@ -6,7 +6,7 @@ const HomePage = ({ user, setUser }) => {
 		<>
 			<NavBar user={user} setUser={setUser} />
 			<div>
-				<h1>Home</h1>
+				<h1 style={{ color: "white" }}>Home</h1>
 			</div>
 		</>
 	);

@@ -1,11 +1,12 @@
 const ExerciseCard = ({ exercise }) => {
-	const renderCard = (
+	const renderExercise = (
 		<li>
 			<img src={exercise.image} alt={exercise.name} />
-			<h5>{exercise.name}</h5>
+			<h5 style={{ color: "white" }}>{exercise.name}</h5>
 			<p>{exercise.description}</p>
 		</li>
 	);
+	return <ul>{renderExercise}</ul>;
 };
 
 export default ExerciseCard;

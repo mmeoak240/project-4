@@ -3,9 +3,9 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./Login";
 import SignUp from "./Signup";
-import NavBar from "./NavBar";
 
 import HomePage from "./HomePage";
+import ExerciseContainer from "./ExerciseContainer";
 
 function App() {
 	const [user, setUser] = useState("");
@@ -26,23 +26,23 @@ function App() {
 			<main>
 				{user ? (
 					<Switch>
-						<Route path="/">
+						<Route exact path="/">
 							<HomePage user={user} setUser={setUser} />
 						</Route>
 					</Switch>
 				) : (
 					<Switch>
-						<Route path="/signup">
+						<Route exact path="/signup">
 							<SignUp onLogin={onLogin} />
 						</Route>
-						<Route path="/login">
+						<Route exact path="/login">
 							<Login onLogin={onLogin} />
 						</Route>
 						<Route path="/exercises">
-							<SignUp />
+							<ExerciseContainer user={user} setUser={setUser} />
 						</Route>
-						<Route path="/">
-							<HomePage />
+						<Route exact path="/">
+							<Login onLogin={onLogin} />
 						</Route>
 					</Switch>
 				)}
