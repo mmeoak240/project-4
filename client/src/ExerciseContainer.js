@@ -8,6 +8,12 @@ const ExerciseContainer = () => {
 			.then((r) => r.json())
 			.then((data) => setExercises(data));
 	}, []);
+
+	<div>
+		{exercises.map((exercise) => (
+			<ExerciseCard exercise={exercise} />
+		))}
+	</div>;
 };
 
 export default ExerciseContainer;
