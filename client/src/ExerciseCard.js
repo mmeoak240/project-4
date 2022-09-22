@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReviewForm from "./ReviewForm";
 
 const ExerciseCard = ({ exercise }) => {
 	const [reviewFlag, setReviewFlag] = useState(false);
@@ -17,9 +18,9 @@ const ExerciseCard = ({ exercise }) => {
 	return (
 		<>
 			<p>{renderExercise}</p>
-			{reviewFlag ? <TrailDescription trail={trail} /> : null}
-			<button onClick={handleClick}>
-				{reviewFlag ? "Hide Description" : "Description"}
+			{reviewFlag ? <ReviewForm /> : null}
+			<button onClick={handleClick} id="reviewBtn">
+				{reviewFlag ? "Close" : "Review"}
 			</button>
 		</>
 	);
