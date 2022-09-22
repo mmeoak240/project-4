@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Login from "./Login";
 import SignUp from "./Signup";
-
 import HomePage from "./HomePage";
 import ExerciseContainer from "./ExerciseContainer";
 
@@ -29,6 +28,9 @@ function App() {
 						<Route exact path="/">
 							<HomePage user={user} setUser={setUser} />
 						</Route>
+						<Route exact path="/exercises">
+							<ExerciseContainer user={user} setUser={setUser} />
+						</Route>
 					</Switch>
 				) : (
 					<Switch>
@@ -37,9 +39,6 @@ function App() {
 						</Route>
 						<Route exact path="/login">
 							<Login onLogin={onLogin} />
-						</Route>
-						<Route path="/exercises">
-							<ExerciseContainer user={user} setUser={setUser} />
 						</Route>
 						<Route exact path="/">
 							<Login onLogin={onLogin} />

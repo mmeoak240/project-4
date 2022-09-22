@@ -2,21 +2,25 @@ import React, { useState, useEffect } from "react";
 import ExerciseCard from "./ExerciseCard";
 import NavBar from "./NavBar";
 
-const ExerciseContainer = () => {
-	const [user, setUser] = useState("");
-	// const [exercises, setExercises] = useState([]);
+const ExerciseContainer = ({ user, setUser }) => {
+	const [exercises, setExercises] = useState([]);
 
-	// useEffect(() => {
-	// 	fetch("/exercises")
-	// 		.then((r) => r.json())
-	// 		.then(setExercises);
-	// }, []);
+	useEffect(() => {
+		fetch("/exercises")
+			.then((r) => r.json())
+			.then((data) => setExercises(data));
+	}, []);
 
 	return (
 		<>
 			<NavBar user={user} setUser={setUser} />
 			<div>
-				<h1 style={{ color: "white" }}>Exercise</h1>
+				<h1 style={{ color: "white" }}>Exercises</h1>
+				<li>
+					{exercises.map((exercise) => (
+						<ExerciseCard exercise={exercise} key={exercise.id} />
+					))}
+				</li>
 			</div>
 		</>
 	);
