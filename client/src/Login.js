@@ -24,18 +24,22 @@ function Login({ onLogin }) {
 
 	return (
 		<body>
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} class="form">
 				<h1>Login</h1>
 				<label htmlFor="username">Username</label>
 				<input
+					class="input"
 					type="text"
 					id="username"
 					autoComplete="off"
 					value={username}
 					onChange={(e) => setUsername(e.target.value)}
 				/>
-				<label htmlFor="password">Password</label>
+				<label htmlFor="password" class="label">
+					Password
+				</label>
 				<input
+					class="input"
 					type="password"
 					id="password"
 					autoComplete="current-password"

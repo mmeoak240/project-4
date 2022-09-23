@@ -31,9 +31,12 @@ function SignUp({ onLogin }) {
 	return (
 		<div>
 			<h1>Signup</h1>
-			<form onSubmit={onSubmit}>
-				<label htmlFor="username">Username</label>
+			<form onSubmit={onSubmit} class="form">
+				<label htmlFor="username" class="label">
+					Username
+				</label>
 				<input
+					class="input"
 					type="text"
 					id="username"
 					autoComplete="off"
@@ -41,8 +44,11 @@ function SignUp({ onLogin }) {
 					onChange={(e) => setUsername(e.target.value)}
 				/>
 
-				<label htmlFor="password">Password</label>
+				<label htmlFor="password" class="label">
+					Password
+				</label>
 				<input
+					class="input"
 					type="password"
 					id="password"
 					autoComplete="current-password"
@@ -50,16 +56,22 @@ function SignUp({ onLogin }) {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 
-				<label htmlFor="passwordConfirmation">Password Confirmation</label>
+				<label htmlFor="passwordConfirmation" class="label">
+					Password Confirmation
+				</label>
 				<input
+					class="input"
 					type="password"
 					id="password_confirmation"
 					autoComplete="current-password"
 					value={passwordConfirmation}
 					onChange={(e) => setPasswordConfirmation(e.target.value)}
 				/>
-				<label htmlFor="goals">Goals</label>
+				<label htmlFor="goals" class="label">
+					Goals
+				</label>
 				<input
+					class="input"
 					type="text"
 					id="goals"
 					autoComplete="off"
