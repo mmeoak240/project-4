@@ -16,7 +16,6 @@ const ExerciseCard = ({ exercise, reviews }) => {
 		</li>
 	);
 
-	const renderReviews = <p></p>;
 	return (
 		<>
 			<p>{renderExercise}</p>
