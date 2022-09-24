@@ -80,7 +80,7 @@ function SignUp({ onLogin }) {
 				/>
 
 				<button type="submit">Signup</button>
-				<NavLink to="/login">Login</NavLink>
+				<NavLink to="/">Login</NavLink>
 			</form>
 		</div>
 	);

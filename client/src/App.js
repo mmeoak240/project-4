@@ -37,9 +37,6 @@ function App() {
 						<Route exact path="/signup">
 							<SignUp onLogin={onLogin} />
 						</Route>
-						<Route exact path="/login">
-							<Login onLogin={onLogin} />
-						</Route>
 						<Route exact path="/">
 							<Login onLogin={onLogin} />
 						</Route>
