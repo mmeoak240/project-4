@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
 
-const ExerciseCard = ({ exercise }) => {
+const ExerciseCard = ({ exercise, reviews }) => {
 	const [reviewFlag, setReviewFlag] = useState(false);
 
 	const handleClick = () => {
@@ -15,6 +15,8 @@ const ExerciseCard = ({ exercise }) => {
 			<p style={{ color: "white" }}>{exercise.description}</p>
 		</li>
 	);
+
+	const renderReviews = <p></p>;
 	return (
 		<>
 			<p>{renderExercise}</p>

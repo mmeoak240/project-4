@@ -4,6 +4,11 @@ import NavBar from "./NavBar";
 
 const ExerciseContainer = ({ user, setUser }) => {
 	const [exercises, setExercises] = useState([]);
+	const [reviews, setReviews] = useState([]);
+
+	const onReview = (reviews) => {
+		setReviews(reviews);
+	};
 
 	useEffect(() => {
 		fetch("/exercises")
@@ -18,7 +23,11 @@ const ExerciseContainer = ({ user, setUser }) => {
 				<h1 style={{ color: "white" }}>Exercises</h1>
 				<li>
 					{exercises.map((exercise) => (
-						<ExerciseCard exercise={exercise} key={exercise.id} />
+						<ExerciseCard
+							exercise={exercise}
+							reviews={reviews}
+							key={exercise.id}
+						/>
 					))}
 				</li>
 			</div>

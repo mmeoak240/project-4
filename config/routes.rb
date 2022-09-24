@@ -8,5 +8,7 @@ Rails.application.routes.draw do
 
  get "/exercises", to: "exercises#index"
 
+ post "/reviews", to: "reviews#create"
+
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
