@@ -11,3 +11,5 @@ class ExercisesController < ApplicationController
       render json: {error: "exercise not found"}
   end
 end
+
+end

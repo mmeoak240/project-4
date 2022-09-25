@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
 import { NavLink } from "react-router-dom";
 
-const ExerciseCard = ({ exercise, reviews }) => {
+const ExerciseCard = ({ exercise, setReviews }) => {
 	const [reviewFlag, setReviewFlag] = useState(false);
-	const [moreInfoFlag, setMoreInfoFlag] = useState(false);
 
 	const handleReviewClick = () => {
 		setReviewFlag((reviewFlag) => !reviewFlag);
@@ -21,7 +20,7 @@ const ExerciseCard = ({ exercise, reviews }) => {
 	return (
 		<>
 			<p>{renderExercise}</p>
-			{reviewFlag ? <ReviewForm /> : null}
+			{reviewFlag ? <ReviewForm setReviews={setReviews} /> : null}
 			<button onClick={handleReviewClick} id="reviewBtn">
 				{reviewFlag ? "Close" : "Review"}
 			</button>
