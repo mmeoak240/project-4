@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ExerciseCard = ({ exercise, setReviews }) => {
 	const [reviewFlag, setReviewFlag] = useState(false);
@@ -24,7 +24,7 @@ const ExerciseCard = ({ exercise, setReviews }) => {
 			<button onClick={handleReviewClick} id="reviewBtn">
 				{reviewFlag ? "Close" : "Review"}
 			</button>
-			<NavLink to="exercise/:id">More Info</NavLink>
+			<Link to={"/exercises/${exercise.name}"}>More Info</Link>
 		</>
 	);
 };

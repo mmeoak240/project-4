@@ -5,6 +5,7 @@ import Login from "./Login";
 import SignUp from "./Signup";
 import HomePage from "./HomePage";
 import ExerciseContainer from "./ExerciseContainer";
+import MoreInfo from "./MoreInfo";
 
 function App() {
 	const [user, setUser] = useState("");
@@ -30,6 +31,9 @@ function App() {
 						</Route>
 						<Route exact path="/exercises">
 							<ExerciseContainer user={user} setUser={setUser} />
+						</Route>
+						<Route exact path="/exercises/:name">
+							<MoreInfo />
 						</Route>
 					</Switch>
 				) : (
