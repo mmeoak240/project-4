@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+ 
   
  post "/signup", to: "clients#create"
  get "/me", to: "clients#show"

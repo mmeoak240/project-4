@@ -2,15 +2,8 @@ import React, { useState, useEffect } from "react";
 import ExerciseCard from "./ExerciseCard";
 import NavBar from "./NavBar";
 
-const ExerciseContainer = ({ user, setUser }) => {
-	const [exercises, setExercises] = useState([]);
+const ExerciseContainer = ({ user, setUser, exercises }) => {
 	const [reviews, setReviews] = useState([]);
-
-	useEffect(() => {
-		fetch("/exercises")
-			.then((r) => r.json())
-			.then((data) => setExercises(data));
-	}, []);
 
 	return (
 		<>

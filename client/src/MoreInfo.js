@@ -1,7 +1,32 @@
 import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+import ReviewForm from "./ReviewForm";
 
 function MoreInfo({ exercises }) {
-	const exercise = exercises.filter((exercise) => exercise.id === params.id);
+	const [reviewFlag, setReviewFlag] = useState(false);
+
+	const handleReviewClick = () => {
+		setReviewFlag((reviewFlag) => !reviewFlag);
+	};
+
+	const { id } = useParams();
+	return (
+		<div>
+			{exercises
+				.filter((exercise) => exercise.id === id)
+				.map((exercise, index) => (
+					<div key={index}>
+						<h1>{exercise.name}</h1>
+						<img src={exercise.image} alt={exercise.name} />
+						<p style={{ color: "white" }}>{exercise.description}</p>
+					</div>
+				))}
+			{reviewFlag ? <ReviewForm /> : null}
+			<button onClick={handleReviewClick} id="reviewBtn">
+				{reviewFlag ? "Close" : "Review"}
+			</button>
+		</div>
+	);
 }
 
 export default MoreInfo;

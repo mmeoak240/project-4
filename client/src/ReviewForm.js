@@ -27,12 +27,6 @@ const ReviewForm = ({ setReviews }) => {
 				Review
 			</label>
 			<form onSubmit={handleSubmit}>
-				<label>Username</label>
-				<input
-					type="text"
-					value={username}
-					onChange={(e) => setUsername(e.target.value)}
-				/>
 				<textarea
 					type="text"
 					value={content}

@@ -9,6 +9,7 @@ import MoreInfo from "./MoreInfo";
 
 function App() {
 	const [user, setUser] = useState("");
+	const [exercises, setExercises] = useState([]);
 
 	const onLogin = (client) => {
 		setUser(client);
@@ -21,6 +22,13 @@ function App() {
 			}
 		});
 	}, []);
+
+	useEffect(() => {
+		fetch("/exercises")
+			.then((r) => r.json())
+			.then((data) => setExercises(data));
+	}, []);
+
 	return (
 		<>
 			<main>
@@ -30,10 +38,14 @@ function App() {
 							<HomePage user={user} setUser={setUser} />
 						</Route>
 						<Route exact path="/exercises">
-							<ExerciseContainer user={user} setUser={setUser} />
+							<ExerciseContainer
+								user={user}
+								setUser={setUser}
+								exercises={exercises}
+							/>
 						</Route>
-						<Route exact path="/exercises/:name">
-							<MoreInfo />
+						<Route exact path="/exercises/:id">
+							<MoreInfo exercises={exercises} />
 						</Route>
 					</Switch>
 				) : (
