@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({ setReviews }) => {
+const ReviewForm = ({ setReviews, exercise, client }) => {
 	const [content, setContent] = useState("");
 
 	function handleSubmit(e) {
@@ -10,7 +10,11 @@ const ReviewForm = ({ setReviews }) => {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ content, exercise: id }),
+			body: JSON.stringify({
+				content,
+				exercise_id: exercise.id,
+				client_id: client.id,
+			}),
 		}).then((r) => {
 			if (r.ok) {
 				r.json().then((review) => setReviews(review));

@@ -45,7 +45,7 @@ function App() {
 							/>
 						</Route>
 						<Route exact path="/exercises/:name">
-							<MoreInfo exercises={exercises} />
+							<MoreInfo exercises={exercises} client={client} />
 						</Route>
 					</Switch>
 				) : (

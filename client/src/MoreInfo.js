@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
 
-function MoreInfo({ exercises }) {
+function MoreInfo({ exercises, client }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
-
+	const { name } = useParams();
 	const handleReviewClick = () => {
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
@@ -13,7 +13,6 @@ function MoreInfo({ exercises }) {
 		(exercise) => exercise.name === name
 	);
 
-	const { name } = useParams();
 	return (
 		<div>
 			{selectedExercise.map((exercise, index) => (
@@ -23,7 +22,9 @@ function MoreInfo({ exercises }) {
 					<p style={{ color: "white" }}>{exercise.description}</p>
 				</div>
 			))}
-			{reviewFlag ? <ReviewForm /> : null}
+			{reviewFlag ? (
+				<ReviewForm exercise={selectedExercise} client={client} />
+			) : null}
 			<button onClick={handleReviewClick} id="reviewBtn">
 				{reviewFlag ? "Close" : "Review"}
 			</button>
