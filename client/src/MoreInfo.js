@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
 
-function MoreInfo({ exercises, client }) {
+function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
 	const { name } = useParams();
 	const handleReviewClick = () => {
@@ -11,6 +11,10 @@ function MoreInfo({ exercises, client }) {
 
 	const selectedExercise = exercises.filter(
 		(exercise) => exercise.name === name
+	);
+
+	const exerciseReviews = reviews.filter(
+		(review) => (review.exercise_id = selectedExercise.id)
 	);
 
 	return (
@@ -22,8 +26,17 @@ function MoreInfo({ exercises, client }) {
 					<p style={{ color: "white" }}>{exercise.description}</p>
 				</div>
 			))}
+			<ul>
+				{exerciseReviews.map((review) => (
+					<li>{review.content}</li>
+				))}
+			</ul>
 			{reviewFlag ? (
-				<ReviewForm exercise={selectedExercise} client={client} />
+				<ReviewForm
+					exercise={selectedExercise}
+					client={client}
+					onReviewSubmit={onReviewSubmit}
+				/>
 			) : null}
 			<button onClick={handleReviewClick} id="reviewBtn">
 				{reviewFlag ? "Close" : "Review"}

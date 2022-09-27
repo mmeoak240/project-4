@@ -3,8 +3,6 @@ import ExerciseCard from "./ExerciseCard";
 import NavBar from "./NavBar";
 
 const ExerciseContainer = ({ user, setUser, exercises }) => {
-	const [reviews, setReviews] = useState([]);
-
 	return (
 		<>
 			<NavBar user={user} setUser={setUser} />
@@ -12,11 +10,7 @@ const ExerciseContainer = ({ user, setUser, exercises }) => {
 				<h1 style={{ color: "white" }}>Exercises</h1>
 				<li>
 					{exercises.map((exercise) => (
-						<ExerciseCard
-							exercise={exercise}
-							setReviews={setReviews}
-							key={exercise.id}
-						/>
+						<ExerciseCard exercise={exercise} key={exercise.id} />
 					))}
 				</li>
 			</div>

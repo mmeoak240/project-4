@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({ setReviews, exercise, client }) => {
+const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
 	const [content, setContent] = useState("");
 
 	function handleSubmit(e) {
@@ -17,7 +17,7 @@ const ReviewForm = ({ setReviews, exercise, client }) => {
 			}),
 		}).then((r) => {
 			if (r.ok) {
-				r.json().then((review) => setReviews(review));
+				r.json().then((review) => onReviewSubmit(review));
 			}
 			setContent("");
 		});

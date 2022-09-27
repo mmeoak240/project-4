@@ -10,9 +10,14 @@ import MoreInfo from "./MoreInfo";
 function App() {
 	const [user, setUser] = useState("");
 	const [exercises, setExercises] = useState([]);
+	const [reviews, setReviews] = useState([]);
 
 	const onLogin = (client) => {
 		setUser(client);
+	};
+
+	const onReviewSubmit = (review) => {
+		setReviews([...reviews, review]);
 	};
 
 	useEffect(() => {
@@ -27,6 +32,12 @@ function App() {
 		fetch("/exercises")
 			.then((r) => r.json())
 			.then((data) => setExercises(data));
+	}, []);
+
+	useEffect(() => {
+		fetch("/reviews")
+			.then((r) => r.json())
+			.then((data) => setReviews(data));
 	}, []);
 
 	return (
@@ -45,7 +56,12 @@ function App() {
 							/>
 						</Route>
 						<Route exact path="/exercises/:name">
-							<MoreInfo exercises={exercises} client={client} />
+							<MoreInfo
+								exercises={exercises}
+								client={user}
+								reviews={reviews}
+								onReviewSubmit={onReviewSubmit}
+							/>
 						</Route>
 					</Switch>
 				) : (

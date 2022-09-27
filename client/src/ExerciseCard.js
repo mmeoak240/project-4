@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ExerciseCard = ({ exercise, setReviews }) => {
+const ExerciseCard = ({ exercise }) => {
 	const renderExercise = (
 		<li>
 			<img src={exercise.image} alt={exercise.name} />

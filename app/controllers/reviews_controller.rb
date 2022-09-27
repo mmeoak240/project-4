@@ -10,6 +10,10 @@ class ReviewsController < ApplicationController
 
   end
 
+  def index
+    render json: Review.all, status: :ok
+  end
+
   
 
   private
