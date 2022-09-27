@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 const ReviewForm = ({ setReviews }) => {
 	const [content, setContent] = useState("");
-	const [username, setUsername] = useState("");
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -11,13 +10,12 @@ const ReviewForm = ({ setReviews }) => {
 			headers: {
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ username, content }),
+			body: JSON.stringify({ content, exercise: id }),
 		}).then((r) => {
 			if (r.ok) {
 				r.json().then((review) => setReviews(review));
 			}
 			setContent("");
-			setUsername("");
 		});
 	}
 

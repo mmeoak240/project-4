@@ -4,6 +4,7 @@ class ReviewsController < ApplicationController
   wrap_parameters format: []
 
   def create
+    byebug
     review = Review.create(review_params)
     render json: review, status: :created
 
@@ -14,6 +15,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.permit(:username, :content)
+    params.permit(:content, :exercise_id)
   end
 end

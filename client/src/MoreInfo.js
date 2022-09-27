@@ -9,11 +9,11 @@ function MoreInfo({ exercises }) {
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
-	const { id } = useParams();
+	const { name } = useParams();
 	return (
 		<div>
 			{exercises
-				.filter((exercise) => exercise.id === id)
+				.filter((exercise) => exercise.name === name)
 				.map((exercise, index) => (
 					<div key={index}>
 						<h1>{exercise.name}</h1>

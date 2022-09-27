@@ -13,7 +13,7 @@ const ExerciseCard = ({ exercise, setReviews }) => {
 		<>
 			<p>{renderExercise}</p>
 
-			<Link to={`/exercises/${exercise.id}`}>More Info</Link>
+			<Link to={`/exercises/${exercise.name}`}>More Info</Link>
 		</>
 	);
 };
