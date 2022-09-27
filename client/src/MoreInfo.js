@@ -9,18 +9,20 @@ function MoreInfo({ exercises }) {
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
+	const selectedExercise = exercises.filter(
+		(exercise) => exercise.name === name
+	);
+
 	const { name } = useParams();
 	return (
 		<div>
-			{exercises
-				.filter((exercise) => exercise.name === name)
-				.map((exercise, index) => (
-					<div key={index}>
-						<h1>{exercise.name}</h1>
-						<img src={exercise.image} alt={exercise.name} />
-						<p style={{ color: "white" }}>{exercise.description}</p>
-					</div>
-				))}
+			{selectedExercise.map((exercise, index) => (
+				<div key={index}>
+					<h1>{exercise.name}</h1>
+					<img src={exercise.image} alt={exercise.name} />
+					<p style={{ color: "white" }}>{exercise.description}</p>
+				</div>
+			))}
 			{reviewFlag ? <ReviewForm /> : null}
 			<button onClick={handleReviewClick} id="reviewBtn">
 				{reviewFlag ? "Close" : "Review"}
