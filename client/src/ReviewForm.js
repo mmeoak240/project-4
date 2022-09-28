@@ -3,6 +3,11 @@ import React, { useState } from "react";
 const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
 	const [content, setContent] = useState("");
 
+	// function handleSubmit(e) {
+	// 	e.preventDefault();
+	// 	console.log("hitting");
+	// }
+
 	function handleSubmit(e) {
 		e.preventDefault();
 		fetch("/reviews", {
@@ -11,6 +16,7 @@ const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
+				username: client.username,
 				content,
 				exercise_id: exercise.id,
 				client_id: client.id,
@@ -35,10 +41,10 @@ const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
 					onChange={(e) => setContent(e.target.value)}
 					style={{ width: 700, height: 200, color: "black", fontSize: 16 }}
 				/>
+				<button type="submit" id="reviewBtn">
+					Submit
+				</button>
 			</form>
-			<button type="submit" id="reviewBtn">
-				Submit
-			</button>
 		</>
 	);
 };

@@ -28,7 +28,9 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 			))}
 			<ul>
 				{exerciseReviews.map((review) => (
-					<li>{review.content}</li>
+					<li style={{ color: "white" }}>
+						{review.content} - {review.username}
+					</li>
 				))}
 			</ul>
 			{reviewFlag ? (
