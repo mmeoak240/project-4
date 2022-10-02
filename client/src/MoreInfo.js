@@ -7,7 +7,6 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 	const [editFlag, setEditFlag] = useState(false);
 	const { name } = useParams();
 	const handleReviewClick = () => {
-		console.log(selectedExercise[0]);
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
@@ -36,6 +35,9 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 				{exerciseReviews.map((review) => (
 					<li style={{ color: "white" }}>
 						{review.username} - {review.content}
+						<button onClick={handleEditClick} style={{ width: 50 }}>
+							{editFlag ? "Close" : "Edit"}
+						</button>
 					</li>
 				))}
 			</ul>
@@ -48,9 +50,6 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 			) : null}
 			<button onClick={handleReviewClick} id="reviewBtn">
 				{reviewFlag ? "Close" : "Review"}
-			</button>
-			<button onClick={handleEditClick} id="reviewBtn">
-				{editFlag ? "Close" : "Review"}
 			</button>
 		</div>
 	);
