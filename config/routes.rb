@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
  post "/reviews", to: "reviews#create"
  get "/reviews", to: "reviews#index"
+ patch "/reviews/:id", to: "reviews#update"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

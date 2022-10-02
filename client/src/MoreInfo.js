@@ -6,6 +6,7 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
 	const { name } = useParams();
 	const handleReviewClick = () => {
+		console.log(selectedExercise[0]);
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
@@ -14,7 +15,7 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 	);
 
 	const exerciseReviews = reviews.filter(
-		(review) => (review.exercise_id = selectedExercise.id)
+		(review) => review.exercise_id === selectedExercise[0].id
 	);
 
 	return (
@@ -29,7 +30,7 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 			<ul>
 				{exerciseReviews.map((review) => (
 					<li style={{ color: "white" }}>
-						{review.content} - {review.username}
+						{review.username} - {review.content}
 					</li>
 				))}
 			</ul>

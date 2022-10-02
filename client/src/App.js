@@ -17,7 +17,7 @@ function App() {
 	};
 
 	const onReviewSubmit = (review) => {
-		setReviews([...reviews, review]);
+		setReviews([review, ...reviews]);
 	};
 
 	useEffect(() => {

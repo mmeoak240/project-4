@@ -3,9 +3,11 @@ import React, { useState } from "react";
 const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
 	const [content, setContent] = useState("");
 
+	const selectedExercise = exercise[0];
+
 	// function handleSubmit(e) {
 	// 	e.preventDefault();
-	// 	console.log("hitting");
+	// 	console.log(selectedExercise.id);
 	// }
 
 	function handleSubmit(e) {
@@ -18,7 +20,7 @@ const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
 			body: JSON.stringify({
 				username: client.username,
 				content,
-				exercise_id: exercise.id,
+				exercise_id: selectedExercise.id,
 				client_id: client.id,
 			}),
 		}).then((r) => {
