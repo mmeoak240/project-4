@@ -4,10 +4,15 @@ import ReviewForm from "./ReviewForm";
 
 function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
+	const [editFlag, setEditFlag] = useState(false);
 	const { name } = useParams();
 	const handleReviewClick = () => {
 		console.log(selectedExercise[0]);
 		setReviewFlag((reviewFlag) => !reviewFlag);
+	};
+
+	const handleEditClick = () => {
+		setEditFlag((editFlag) => !editFlag);
 	};
 
 	const selectedExercise = exercises.filter(
@@ -43,6 +48,9 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 			) : null}
 			<button onClick={handleReviewClick} id="reviewBtn">
 				{reviewFlag ? "Close" : "Review"}
+			</button>
+			<button onClick={handleEditClick} id="reviewBtn">
+				{editFlag ? "Close" : "Review"}
 			</button>
 		</div>
 	);
