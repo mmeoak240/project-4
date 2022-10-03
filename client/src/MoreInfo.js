@@ -1,17 +1,37 @@
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
+import EditForm from "./EditForm";
 
-function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
+function MoreInfo({
+	exercises,
+	client,
+	reviews,
+	onReviewSubmit,
+	onDeleteReview,
+}) {
 	const [reviewFlag, setReviewFlag] = useState(false);
 	const [editFlag, setEditFlag] = useState(false);
 	const { name } = useParams();
+
 	const handleReviewClick = () => {
+		console.log(reviews);
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
 	const handleEditClick = () => {
 		setEditFlag((editFlag) => !editFlag);
+	};
+
+	const handleDeleteClick = (review) => {
+		console.log(review);
+		// 	fetch(`/reviews/${review.id}`, {
+		// 		method: "DELETE",
+		// 	}).then((r) => {
+		// 		if (r.ok) {
+		// 			onDeleteReview(review.id);
+		// 		}
+		// 	});
 	};
 
 	const selectedExercise = exercises.filter(
@@ -32,13 +52,25 @@ function MoreInfo({ exercises, client, reviews, onReviewSubmit }) {
 				</div>
 			))}
 			<ul>
-				{exerciseReviews.map((review) => (
-					<li style={{ color: "white" }}>
-						{review.username} - {review.content}
-						<button onClick={handleEditClick} style={{ width: 50 }}>
-							{editFlag ? "Close" : "Edit"}
-						</button>
-					</li>
+				{exerciseReviews.map((review, index) => (
+					<div key={index}>
+						<li style={{ color: "white" }}>
+							{review.username} - {review.content}
+							{/* <button style={{ width: 50 }} onClick={handleDeleteClick(review)}>
+								Delete
+							</button> */}
+							<button onClick={handleEditClick} style={{ width: 50 }}>
+								{editFlag ? "Close" : "Edit"}
+							</button>
+							{editFlag ? (
+								<EditForm
+									exercise={selectedExercise}
+									client={client}
+									onReviewSubmit={onReviewSubmit}
+								/>
+							) : null}
+						</li>
+					</div>
 				))}
 			</ul>
 			{reviewFlag ? (

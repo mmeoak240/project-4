@@ -20,6 +20,11 @@ function App() {
 		setReviews([review, ...reviews]);
 	};
 
+	const handleDeleteReview = (id) => {
+		const updatedReviewsArray = reviews.filter((review) => review.id !== id);
+		setReviews(updatedReviewsArray);
+	};
+
 	useEffect(() => {
 		fetch("/me").then((r) => {
 			if (r.ok) {
@@ -61,6 +66,7 @@ function App() {
 								client={user}
 								reviews={reviews}
 								onReviewSubmit={onReviewSubmit}
+								onDeleteReview={handleDeleteReview}
 							/>
 						</Route>
 					</Switch>

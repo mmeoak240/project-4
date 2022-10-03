@@ -12,6 +12,7 @@ const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
 
 	function handleSubmit(e) {
 		e.preventDefault();
+		console.log("Working");
 		fetch("/reviews", {
 			method: "POST",
 			headers: {
