@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({ setReviews, exercise, client, onReviewSubmit }) => {
+const ReviewForm = ({ exercise, client, onReviewSubmit }) => {
 	const [content, setContent] = useState("");
 
 	const selectedExercise = exercise[0];

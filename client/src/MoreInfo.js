@@ -64,9 +64,9 @@ function MoreInfo({
 							</button>
 							{editFlag ? (
 								<EditForm
-									exercise={selectedExercise}
-									client={client}
-									onReviewSubmit={onReviewSubmit}
+									review={review}
+									setEditFlag={setEditFlag}
+									editFlag={editFlag}
 								/>
 							) : null}
 						</li>

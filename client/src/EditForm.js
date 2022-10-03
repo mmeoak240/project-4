@@ -1,32 +1,31 @@
 import React, { useState } from "react";
 
-const EditForm = ({ exercise }) => {
+const EditForm = ({ review, setEditFlag, editFlag }) => {
 	const [content, setContent] = useState("");
-
-	const selectedExercise = exercise[0];
-
-	function handleSubmit(e) {
-		e.preventDefault();
-		console.log(selectedExercise.id);
-	}
 
 	// function handleSubmit(e) {
 	// 	e.preventDefault();
-	// 	fetch("/reviews", {
-	// 		method: "PATCH",
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 		body: JSON.stringify({
-	// 			content,
-	// 		}),
-	// 	}).then((r) => {
-	// 		if (r.ok) {
-	// 			r.json().then((review) => console.log(review));
-	// 		}
-	// 		setContent("");
-	// 	});
+	// 	console.log(selectedExercise.id);
 	// }
+
+	function handleSubmit(e) {
+		e.preventDefault();
+		fetch(`/reviews/${review.id}`, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				content,
+			}),
+		}).then((r) => {
+			if (r.ok) {
+				r.json().then((review) => console.log(review));
+			}
+			setContent("");
+			setEditFlag(!editFlag);
+		});
+	}
 
 	return (
 		<>
