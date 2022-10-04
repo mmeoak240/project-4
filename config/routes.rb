@@ -14,7 +14,7 @@ Rails.application.routes.draw do
  get "/reviews", to: "reviews#index"
  get "/reviews/:id", to: "reviews#show"
  patch "/reviews/:id", to: "reviews#update"
-#  delete "/reviews/:id", to: "reviews#destroy"
+ delete "/reviews/:id", to: "reviews#destroy"
 
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end

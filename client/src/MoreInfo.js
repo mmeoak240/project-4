@@ -24,14 +24,14 @@ function MoreInfo({
 	};
 
 	const handleDeleteClick = (review) => {
-		console.log(review);
-		// 	fetch(`/reviews/${review.id}`, {
-		// 		method: "DELETE",
-		// 	}).then((r) => {
-		// 		if (r.ok) {
-		// 			onDeleteReview(review.id);
-		// 		}
-		// 	});
+		// console.log(review);
+		fetch(`/reviews/${review.id}`, {
+			method: "DELETE",
+		}).then((r) => {
+			if (r.ok) {
+				onDeleteReview(review.id);
+			}
+		});
 	};
 
 	const selectedExercise = exercises.filter(
@@ -56,12 +56,19 @@ function MoreInfo({
 					<div key={index}>
 						<li style={{ color: "white" }}>
 							{review.username} - {review.content}
-							{/* <button style={{ width: 50 }} onClick={handleDeleteClick(review)}>
-								Delete
-							</button> */}
-							<button onClick={handleEditClick} style={{ width: 50 }}>
-								{editFlag ? "Close" : "Edit"}
-							</button>
+							{review.client_id === client.id ? (
+								<button
+									onClick={() => handleDeleteClick(review)}
+									style={{ width: 50 }}
+								>
+									Delete
+								</button>
+							) : null}
+							{review.client_id === client.id ? (
+								<button onClick={handleEditClick} style={{ width: 50 }}>
+									{editFlag ? "Close" : "Edit"}
+								</button>
+							) : null}
 							{editFlag ? (
 								<EditForm
 									review={review}
@@ -78,6 +85,7 @@ function MoreInfo({
 					exercise={selectedExercise}
 					client={client}
 					onReviewSubmit={onReviewSubmit}
+					setReviewFlag={setReviewFlag}
 				/>
 			) : null}
 			<button onClick={handleReviewClick} id="reviewBtn">

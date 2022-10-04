@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({ exercise, client, onReviewSubmit }) => {
+const ReviewForm = ({ exercise, client, onReviewSubmit, setReviewFlag }) => {
 	const [content, setContent] = useState("");
 
 	const selectedExercise = exercise[0];
@@ -12,7 +12,6 @@ const ReviewForm = ({ exercise, client, onReviewSubmit }) => {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		console.log("Working");
 		fetch("/reviews", {
 			method: "POST",
 			headers: {
@@ -28,6 +27,7 @@ const ReviewForm = ({ exercise, client, onReviewSubmit }) => {
 			if (r.ok) {
 				r.json().then((review) => onReviewSubmit(review));
 			}
+			setReviewFlag(false);
 			setContent("");
 		});
 	}
