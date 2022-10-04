@@ -60,7 +60,7 @@ function App() {
 								exercises={exercises}
 							/>
 						</Route>
-						<Route exact path="/exercises/:name">
+						<Route path="/exercises/:name">
 							<MoreInfo
 								exercises={exercises}
 								client={user}
