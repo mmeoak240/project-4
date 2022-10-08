@@ -11,7 +11,7 @@ const NavBar = ({ user, setUser }) => {
 	}
 
 	return (
-		<header>
+		<header id="navBar">
 			<div>
 				<NavLink to="/" class="navButton">
 					Home

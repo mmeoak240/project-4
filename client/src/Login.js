@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import "./App.css";
 
 function Login({ onLogin }) {
 	const [username, setUsername] = useState("");
@@ -24,7 +25,8 @@ function Login({ onLogin }) {
 
 	return (
 		<body>
-			<form onSubmit={handleSubmit} class="form">
+			<h1 className="title">Fit4Life</h1>
+			<form onSubmit={handleSubmit} class="form" id="loginBackground">
 				<h1>Login</h1>
 				<label htmlFor="username">Username</label>
 				<input

@@ -8,11 +8,11 @@ const ExerciseContainer = ({ user, setUser, exercises }) => {
 			<NavBar user={user} setUser={setUser} />
 			<div>
 				<h1 style={{ color: "white" }}>Exercises</h1>
-				<li>
+				<div id="exerciseContainer">
 					{exercises.map((exercise) => (
 						<ExerciseCard exercise={exercise} key={exercise.id} />
 					))}
-				</li>
+				</div>
 			</div>
 		</>
 	);

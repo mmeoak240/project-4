@@ -48,7 +48,7 @@ function MoreInfo({
 				<div key={index}>
 					<h1>{exercise.name}</h1>
 					<img src={exercise.image} alt={exercise.name} />
-					<p style={{ color: "white" }}>{exercise.description}</p>
+					<p style={{ color: "white", width: 500 }}>{exercise.description}</p>
 				</div>
 			))}
 			<ul>
