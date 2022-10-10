@@ -6,6 +6,7 @@ import SignUp from "./Signup";
 import HomePage from "./HomePage";
 import ExerciseContainer from "./ExerciseContainer";
 import MoreInfo from "./MoreInfo";
+import ExerciseForm from "./ExerciseForm";
 
 function App() {
 	const [user, setUser] = useState("");
@@ -18,6 +19,10 @@ function App() {
 
 	const onReviewSubmit = (review) => {
 		setReviews([review, ...reviews]);
+	};
+
+	const onExerciseSubmit = (exercise) => {
+		setExercises([exercise, ...exercises]);
 	};
 
 	const handleDeleteReview = (id) => {
@@ -67,6 +72,13 @@ function App() {
 								reviews={reviews}
 								onReviewSubmit={onReviewSubmit}
 								onDeleteReview={handleDeleteReview}
+							/>
+						</Route>
+						<Route path="/exerciseForm">
+							<ExerciseForm
+								onExerciseSubmit={onExerciseSubmit}
+								user={user}
+								setUser={setUser}
 							/>
 						</Route>
 					</Switch>

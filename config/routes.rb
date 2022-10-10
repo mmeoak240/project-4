@@ -9,6 +9,7 @@ Rails.application.routes.draw do
  delete "/logout", to: "sessions#destroy"
 
  get "/exercises", to: "exercises#index"
+ post "/exercises", to: "exercises#create"
 
  post "/reviews", to: "reviews#create"
  get "/reviews", to: "reviews#index"

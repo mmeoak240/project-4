@@ -1,4 +1,11 @@
 class ExercisesController < ApplicationController
+
+  def create
+    exercise = Exercise.create(exercise_params)
+    render json: exercise, status: :created
+
+  end
+
   def index
     render json: Exercise.all, status: :ok
   end
@@ -10,6 +17,12 @@ class ExercisesController < ApplicationController
     else
       render json: {error: "exercise not found"}
   end
+end
+
+private
+
+def exercise_params
+  params.permit(:id, :image, :title, :description)
 end
 
 end
