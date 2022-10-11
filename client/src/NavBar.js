@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import Login from "./Login";
 
 const NavBar = ({ user, setUser }) => {
@@ -9,6 +9,11 @@ const NavBar = ({ user, setUser }) => {
 			}
 		});
 	}
+
+	const history = useHistory();
+	const ChangeUrl = () => {
+		history.push("/");
+	};
 
 	return (
 		<header id="navBar">
@@ -27,7 +32,13 @@ const NavBar = ({ user, setUser }) => {
 			</div>
 			<div>
 				{user ? (
-					<button onClick={handleLogoutClick} id="logout">
+					<button
+						onClick={() => {
+							handleLogoutClick();
+							ChangeUrl();
+						}}
+						id="logout"
+					>
 						Logout
 					</button>
 				) : (
