@@ -15,10 +15,10 @@ A user may sign up for an account and sign in using those credentials(there is a
 
 ## Pending Features
 
-The ability for the user to build routines by adding exercises to a personal routine page.
-The ability for the admin to create pre-made routines and post them.
-Ability for users to add pre-made routines to their personal routine page.
-Exercise/Routine search and filter functionality
+- The ability for the user to build routines by adding exercises to a personal routine page.
+- The ability for the admin to create pre-made routines and post them.
+- Ability for users to add pre-made routines to their personal routine page.
+- Exercise/Routine search and filter functionality
 
 ## Licensing
 
