@@ -5,9 +5,9 @@ This is a full stack web application built using React for the frontend and Rail
 ## Getting started
 
 Download repository
-run `bash'bundle install'` and `bash'npm install --prefix client'`
-next run `bash'rails s'` to get your server up and running
-lastly run `bash'run npm start --prefix client'` to open up the application in your browser
+run `bundle install` and `npm install --prefix client`
+next run `rails s` to get your server up and running
+lastly run `run npm start --prefix client` to open up the application in your browser
 
 ## Features
 
