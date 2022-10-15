@@ -1,4 +1,35 @@
-# Getting Started with Create React App
+# Fitness Routine Builder -- work in progress
+
+This is a full stack web application built using React for the frontend and Rails for the backend. The objective of this project is to showcase my abilities in creating a full stack app.
+
+## Getting started
+
+Download repository
+run `bash'bundle install'` and `bash'npm install --prefix client'`
+next run `bash'rails s'` to get your server up and running
+lastly run `bash'run npm start --prefix client'` to open up the application in your browser
+
+Features
+A user may sign up for an account and sign in using those credentials(there is also an admin log in that grants access to additional functionality). Once logged in the user can visit the "Exercises" page to view the list of exercises that have been created by the applications creator. While on the "Exercises" page the user may click "More info" to view a description of the selected exercise. While viewing the more info page the user will have the opportunity to write a review about the exercise and post it with their username being attached. The user will also be able to edit and delete their reviews. As the admin you have the added option to create exercises.
+
+Pending Features
+The ability for the user to build routines by adding exercises to a personal routine page.
+The ability for the admin to create pre-made routines and post them.
+Ability for users to add pre-made routines to their personal routine page.
+Exercise/Routine search and filter functionality
+
+Licensing
+Copyright (c) {{ 2022 }} {{ Michaels flatiron project }}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Last updated October 14, 2022
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -67,4 +98,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->
