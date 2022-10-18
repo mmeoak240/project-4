@@ -1,6 +1,6 @@
 # Fitness Routine Builder -- work in progress
 
-This is a full stack web application built using React for the frontend and Rails for the backend. The objective of this project is to showcase my abilities in creating a full stack app.
+This is a full stack web application built using React for the frontend and Rails for the backend. The objective of this project is to showcase my abilities in creating a full stack application by creating my own api and the functionality that allows my front end to communicate with the api.
 
 ## Getting started
 
@@ -11,7 +11,7 @@ lastly run `run npm start --prefix client` to open up the application in your br
 
 ## Features
 
-A user may sign up for an account and sign in using those credentials(there is also an admin log in that grants access to additional functionality). Once logged in the user can visit the "Exercises" page to view the list of exercises that have been created by the applications creator. While on the "Exercises" page the user may click "More info" to view a description of the selected exercise. While viewing the more info page the user will have the opportunity to write a review about the exercise and post it with their username being attached. The user will also be able to edit and delete their reviews. As the admin you have the added option to create exercises.
+A user may sign up for an account and sign in using those credentials(there is also an admin login that grants access to additional functionality). Once logged in the user can visit the "Exercises" page to view the list of exercises that have been created by the applications creator. While on the "Exercises" page the user may click "More info" to view a description of the selected exercise. While viewing the more info page the user will have the opportunity to write a review about the exercise and post it with their username being associated with it. The user will also be able to edit and delete their reviews. As the admin you have the added option to create exercises by clikcing the "create exercise" link in the nav bar.
 
 ## Pending Features
 
