@@ -69,6 +69,7 @@ function App() {
 							<MoreInfo
 								exercises={exercises}
 								client={user}
+								setUser={setUser}
 								reviews={reviews}
 								onReviewSubmit={onReviewSubmit}
 								onDeleteReview={handleDeleteReview}
