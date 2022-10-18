@@ -1,6 +1,7 @@
 # Fitness Routine Builder -- work in progress
 
 This is a full stack web application built using React for the frontend and Rails for the backend. The objective of this project is to showcase my abilities in creating a full stack application by creating my own api and the functionality that allows my front end to communicate with the api.
+I chose a fitness themed project because fitness plays a large role in my life and i believe it has the power to significantly improve the lives of others. In its current stage the application is a bit odd, reviewing individual exercises? This is just an MVP to lay a foundation for the applications actual goal.
 
 ## Getting started
 
@@ -18,6 +19,7 @@ A user may sign up for an account and sign in using those credentials(there is a
 - The ability for the user to build routines by adding exercises to a personal routine page.
 - The ability for the admin to create pre-made routines and post them.
 - Ability for users to add pre-made routines to their personal routine page.
+  -Ability to track exercise completion within a routine.
 - Exercise/Routine search and filter functionality
 
 ## Licensing
