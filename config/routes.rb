@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 #  resources :reviews, only: [:index, :show, :create, :update, :destroy]
+resources :exercises, only: [:index, :create, :destroy]
   
  post "/signup", to: "clients#create"
  get "/me", to: "clients#show"
@@ -8,8 +9,9 @@ Rails.application.routes.draw do
  post "/login", to: "sessions#create"
  delete "/logout", to: "sessions#destroy"
 
- get "/exercises", to: "exercises#index"
- post "/exercises", to: "exercises#create"
+#  get "/exercises", to: "exercises#index"
+#  post "/exercises", to: "exercises#create"
+#  delete "/exercises/:name", to: "exercises#destroy"
 
  post "/reviews", to: "reviews#create"
  get "/reviews", to: "reviews#index"
