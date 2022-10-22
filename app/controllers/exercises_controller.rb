@@ -19,10 +19,21 @@ class ExercisesController < ApplicationController
   end
 end
 
+def destroy
+  byebug
+  exercise = Exercise.find_by(name:params[:name])
+  if exercise
+    exercise.destroy
+    head :no_content
+  else
+    render json: {error: "exercise not found"}, status: :not_found
+  end
+end
+
 private
 
 def exercise_params
-  params.permit(:id, :image, :title, :description)
+  params.permit(:id, :image, :name, :description)
 end
 
 end

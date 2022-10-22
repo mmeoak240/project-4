@@ -13,23 +13,6 @@ function App() {
 	const [exercises, setExercises] = useState([]);
 	const [reviews, setReviews] = useState([]);
 
-	const onLogin = (client) => {
-		setUser(client);
-	};
-
-	const onReviewSubmit = (review) => {
-		setReviews([review, ...reviews]);
-	};
-
-	const onExerciseSubmit = (exercise) => {
-		setExercises([exercise, ...exercises]);
-	};
-
-	const handleDeleteReview = (id) => {
-		const updatedReviewsArray = reviews.filter((review) => review.id !== id);
-		setReviews(updatedReviewsArray);
-	};
-
 	useEffect(() => {
 		fetch("/me").then((r) => {
 			if (r.ok) {
@@ -50,6 +33,42 @@ function App() {
 			.then((data) => setReviews(data));
 	}, []);
 
+	const onLogin = (client) => {
+		setUser(client);
+	};
+
+	const onReviewSubmit = (review) => {
+		setReviews([review, ...reviews]);
+	};
+
+	const onExerciseSubmit = (exercise) => {
+		setExercises([exercise, ...exercises]);
+	};
+
+	const handleDeleteReview = (id) => {
+		const updatedReviewsArray = reviews.filter((review) => review.id !== id);
+		setReviews(...reviews, updatedReviewsArray);
+	};
+
+	const handleUpdateReview = (review) => {
+		setReviews([review, ...reviews]);
+		// const updatedReviewsArray = reviews.map((hash) => {
+		// 	if (hash.id === review.id) {
+		// 		return { ...hash, content: review.content };
+		// 	}
+		// 	return hash;
+		// });
+		// console.log(review);
+		// setReviews(...reviews, updatedReviewsArray);
+	};
+
+	const handleDeleteExercise = (id) => {
+		const updatedExerciseArray = exercises.filter(
+			(exercise) => exercise.id !== id
+		);
+		setExercises(...exercises, updatedExerciseArray);
+	};
+
 	return (
 		<>
 			<main>
@@ -63,6 +82,7 @@ function App() {
 								user={user}
 								setUser={setUser}
 								exercises={exercises}
+								handleDeleteExercise={handleDeleteExercise}
 							/>
 						</Route>
 						<Route path="/exercises/:name">
@@ -73,6 +93,7 @@ function App() {
 								reviews={reviews}
 								onReviewSubmit={onReviewSubmit}
 								onDeleteReview={handleDeleteReview}
+								handleUpdateReview={handleUpdateReview}
 							/>
 						</Route>
 						<Route path="/exerciseForm">

@@ -11,13 +11,13 @@ function MoreInfo({
 	reviews,
 	onReviewSubmit,
 	onDeleteReview,
+	handleUpdateReview,
 }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
 	const [editFlag, setEditFlag] = useState(false);
 	const { name } = useParams();
 
 	const handleReviewClick = () => {
-		console.log(reviews);
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
@@ -63,18 +63,34 @@ function MoreInfo({
 								{review.client_id === client.id ? (
 									<button
 										onClick={() => handleDeleteClick(review)}
-										style={{ width: 50 }}
+										style={{
+											width: 60,
+											height: 37,
+											fontSize: 15,
+											paddingTop: 3,
+											paddingBottom: 3,
+										}}
 									>
 										Delete
 									</button>
 								) : null}
 								{review.client_id === client.id ? (
-									<button onClick={handleEditClick} style={{ width: 50 }}>
+									<button
+										onClick={handleEditClick}
+										style={{
+											width: 60,
+											height: 37,
+											fontSize: 15,
+											paddingTop: 3,
+											paddingBottom: 3,
+										}}
+									>
 										{editFlag ? "Close" : "Edit"}
 									</button>
 								) : null}
 								{editFlag ? (
 									<EditForm
+										handleUpdateReview={handleUpdateReview}
 										review={review}
 										setEditFlag={setEditFlag}
 										editFlag={editFlag}

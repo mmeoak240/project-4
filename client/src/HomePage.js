@@ -8,6 +8,7 @@ const HomePage = ({ user, setUser }) => {
 			<NavBar user={user} setUser={setUser} />
 			<div>
 				<h1 className="title">Welcome to Fit4Life</h1>
+				<p></p>
 			</div>
 		</div>
 	);

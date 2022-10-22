@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const EditForm = ({ review, setEditFlag, editFlag }) => {
-	const [content, setContent] = useState("");
+const EditForm = ({ review, setEditFlag, editFlag, handleUpdateReview }) => {
+	const [content, setContent] = useState(`${review.content}`);
 
 	// function handleSubmit(e) {
 	// 	e.preventDefault();
@@ -20,7 +20,7 @@ const EditForm = ({ review, setEditFlag, editFlag }) => {
 			}),
 		}).then((r) => {
 			if (r.ok) {
-				r.json().then((review) => console.log(review));
+				r.json().then((review) => handleUpdateReview(review));
 			}
 			setContent("");
 			setEditFlag(!editFlag);

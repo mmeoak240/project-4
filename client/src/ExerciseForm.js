@@ -3,7 +3,7 @@ import NavBar from "./NavBar";
 
 const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 	const [image, setImage] = useState("");
-	const [title, setTitle] = useState("");
+	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
 
 	function handleSubmit(e) {
@@ -15,7 +15,7 @@ const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 			},
 			body: JSON.stringify({
 				image,
-				title,
+				name,
 				description,
 			}),
 		}).then((r) => {
@@ -23,7 +23,7 @@ const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 				r.json().then((exercise) => onExerciseSubmit(exercise));
 			}
 			setImage("");
-			setTitle("");
+			setName("");
 			setDescription("");
 		});
 	}
@@ -46,10 +46,10 @@ const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 				<input
 					class="input"
 					type="text"
-					id="title"
+					id="name"
 					autoComplete="off"
-					value={title}
-					onChange={(e) => setTitle(e.target.value)}
+					value={name}
+					onChange={(e) => setName(e.target.value)}
 				/>
 				<label>Description</label>
 				<textarea
@@ -59,7 +59,7 @@ const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 					autoComplete="off"
 					value={description}
 					onChange={(e) => setDescription(e.target.value)}
-					style={{ width: 400, height: 200, color: "black", fontSize: 16 }}
+					style={{ width: 400, height: 200, fontSize: 16 }}
 				/>
 				<button type="submit" id="reviewBtn">
 					Submit
