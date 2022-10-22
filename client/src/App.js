@@ -47,19 +47,18 @@ function App() {
 
 	const handleDeleteReview = (id) => {
 		const updatedReviewsArray = reviews.filter((review) => review.id !== id);
-		setReviews(...reviews, updatedReviewsArray);
+		setReviews([...reviews, updatedReviewsArray]);
 	};
 
 	const handleUpdateReview = (review) => {
-		setReviews([review, ...reviews]);
-		// const updatedReviewsArray = reviews.map((hash) => {
-		// 	if (hash.id === review.id) {
-		// 		return { ...hash, content: review.content };
-		// 	}
-		// 	return hash;
-		// });
-		// console.log(review);
-		// setReviews(...reviews, updatedReviewsArray);
+		const updatedReviewsArray = reviews.map((hash) => {
+			if (hash.id === review.id) {
+				return { ...hash, content: review.content };
+			}
+			return hash;
+		});
+		console.log(updatedReviewsArray);
+		setReviews([...reviews, updatedReviewsArray]);
 	};
 
 	const handleDeleteExercise = (id) => {

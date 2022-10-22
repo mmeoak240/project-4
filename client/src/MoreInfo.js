@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
 import ReviewForm from "./ReviewForm";
-import EditForm from "./EditForm";
+// import EditForm from "./EditForm";
 import NavBar from "./NavBar";
+import Review from "./Review";
 
 function MoreInfo({
 	exercises,
@@ -14,26 +15,12 @@ function MoreInfo({
 	handleUpdateReview,
 }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
-	const [editFlag, setEditFlag] = useState(false);
+
 	const { name } = useParams();
 
 	const handleReviewClick = () => {
+		console.log(client);
 		setReviewFlag((reviewFlag) => !reviewFlag);
-	};
-
-	const handleEditClick = () => {
-		setEditFlag((editFlag) => !editFlag);
-	};
-
-	const handleDeleteClick = (review) => {
-		// console.log(review);
-		fetch(`/reviews/${review.id}`, {
-			method: "DELETE",
-		}).then((r) => {
-			if (r.ok) {
-				onDeleteReview(review.id);
-			}
-		});
 	};
 
 	const selectedExercise = exercises.filter(
@@ -56,48 +43,13 @@ function MoreInfo({
 					</div>
 				))}
 				<ul>
-					{exerciseReviews.map((review, index) => (
-						<div key={index}>
-							<li style={{ color: "white" }}>
-								{review.username} - {review.content}
-								{review.client_id === client.id ? (
-									<button
-										onClick={() => handleDeleteClick(review)}
-										style={{
-											width: 60,
-											height: 37,
-											fontSize: 15,
-											paddingTop: 3,
-											paddingBottom: 3,
-										}}
-									>
-										Delete
-									</button>
-								) : null}
-								{review.client_id === client.id ? (
-									<button
-										onClick={handleEditClick}
-										style={{
-											width: 60,
-											height: 37,
-											fontSize: 15,
-											paddingTop: 3,
-											paddingBottom: 3,
-										}}
-									>
-										{editFlag ? "Close" : "Edit"}
-									</button>
-								) : null}
-								{editFlag ? (
-									<EditForm
-										handleUpdateReview={handleUpdateReview}
-										review={review}
-										setEditFlag={setEditFlag}
-										editFlag={editFlag}
-									/>
-								) : null}
-							</li>
-						</div>
+					{exerciseReviews.map((review) => (
+						<Review
+							review={review}
+							onDeleteReview={onDeleteReview}
+							handleUpdateReview={handleUpdateReview}
+							client={client}
+						/>
 					))}
 				</ul>
 				{reviewFlag ? (
