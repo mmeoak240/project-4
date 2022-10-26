@@ -12,6 +12,7 @@ function App() {
 	const [user, setUser] = useState("");
 	const [exercises, setExercises] = useState([]);
 	const [reviews, setReviews] = useState([]);
+	const [exerciseReviews, setExerciseReviews] = useState([]);
 
 	useEffect(() => {
 		fetch("/me").then((r) => {
@@ -42,12 +43,12 @@ function App() {
 	};
 
 	const onExerciseSubmit = (exercise) => {
-		setExercises([exercise, ...exercises]);
+		setExercises([...exercises, exercise]);
 	};
 
 	const handleDeleteReview = (id) => {
 		const updatedReviewsArray = reviews.filter((review) => review.id !== id);
-		setReviews([...reviews, updatedReviewsArray]);
+		setReviews(updatedReviewsArray);
 	};
 
 	const handleUpdateReview = (review) => {
@@ -58,7 +59,7 @@ function App() {
 			return hash;
 		});
 		console.log(updatedReviewsArray);
-		setReviews([...reviews, updatedReviewsArray]);
+		setReviews(updatedReviewsArray);
 	};
 
 	const handleDeleteExercise = (id) => {

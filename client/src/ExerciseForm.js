@@ -5,6 +5,7 @@ const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 	const [image, setImage] = useState("");
 	const [name, setName] = useState("");
 	const [description, setDescription] = useState("");
+	const [errors, setErrors] = useState([]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -21,6 +22,8 @@ const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 		}).then((r) => {
 			if (r.ok) {
 				r.json().then((exercise) => onExerciseSubmit(exercise));
+			} else {
+				r.json().then((error) => setErrors(error.errors));
 			}
 			setImage("");
 			setName("");
@@ -64,6 +67,11 @@ const ExerciseForm = ({ onExerciseSubmit, user, setUser }) => {
 				<button type="submit" id="reviewBtn">
 					Submit
 				</button>
+				<ul>
+					{errors.map((error) => (
+						<li>{error}</li>
+					))}
+				</ul>
 			</form>
 		</>
 	);

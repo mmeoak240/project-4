@@ -6,6 +6,7 @@ function SignUp({ onLogin }) {
 	const [password, setPassword] = useState("");
 	const [passwordConfirmation, setPasswordConfirmation] = useState("");
 	const [goals, setGoals] = useState("");
+	const [errors, setErrors] = useState([]);
 
 	function onSubmit(e) {
 		e.preventDefault();
@@ -20,12 +21,17 @@ function SignUp({ onLogin }) {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(client),
-		})
-			.then((res) => res.json())
-			.then((client) => onLogin(client));
-		setUsername("");
-		setPassword("");
-		setPasswordConfirmation("");
+		}).then((r) => {
+			if (r.ok) {
+				r.json().then((client) => onLogin(client));
+			} else {
+				r.json().then((error) => setErrors(error.errors));
+			}
+			setUsername("");
+			setPassword("");
+			setPasswordConfirmation("");
+			setGoals("");
+		});
 	}
 
 	return (
@@ -78,7 +84,11 @@ function SignUp({ onLogin }) {
 					value={goals}
 					onChange={(e) => setGoals(e.target.value)}
 				/>
-
+				<ul>
+					{errors.map((error) => (
+						<li>{error}</li>
+					))}
+				</ul>
 				<button type="submit">Signup</button>
 				<NavLink to="/">Login</NavLink>
 			</form>

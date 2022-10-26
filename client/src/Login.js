@@ -23,6 +23,8 @@ function Login({ onLogin }) {
 		});
 	}
 
+	// else console.log(r) r.errors.full_messages = [ "errors"]
+
 	return (
 		<body>
 			<h1 className="title">Fit4Life</h1>

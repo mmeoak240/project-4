@@ -9,7 +9,7 @@ const Review = ({ review, onDeleteReview, handleUpdateReview, client }) => {
 	};
 
 	const handleDeleteClick = (review) => {
-		// console.log(review);
+		console.log(review);
 		fetch(`/reviews/${review.id}`, {
 			method: "DELETE",
 		}).then((r) => {
@@ -20,7 +20,7 @@ const Review = ({ review, onDeleteReview, handleUpdateReview, client }) => {
 	};
 	return (
 		<ul>
-			<div key={review.id}>
+			<div>
 				<li style={{ color: "white" }}>
 					{review.username} - {review.content}
 					{review.client_id === client.id ? (

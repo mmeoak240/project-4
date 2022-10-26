@@ -25,7 +25,7 @@ const NavBar = ({ user, setUser }) => {
 					Exercises
 				</NavLink>
 				{user.admin ? (
-					<NavLink to="exerciseForm" class="navButton">
+					<NavLink to="/exerciseForm" class="navButton">
 						Create Exercise
 					</NavLink>
 				) : null}

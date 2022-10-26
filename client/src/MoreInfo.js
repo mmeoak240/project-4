@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReviewForm from "./ReviewForm";
 // import EditForm from "./EditForm";
 import NavBar from "./NavBar";
@@ -15,27 +15,30 @@ function MoreInfo({
 	handleUpdateReview,
 }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
+	const [exerciseReviews, setExerciseReviews] = useState([]);
 
 	const { name } = useParams();
 
+	// useEffect(() => {
+	const filteredReviews = reviews.filter(
+		(review) => review.exercise_id === filteredExercise[0].id
+	);
+	setExerciseReviews(filteredReviews);
+	// }, [reviews]);
+
 	const handleReviewClick = () => {
-		console.log(client);
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
-	const selectedExercise = exercises.filter(
+	const filteredExercise = exercises.filter(
 		(exercise) => exercise.name === name
-	);
-
-	const exerciseReviews = reviews.filter(
-		(review) => review.exercise_id === selectedExercise[0].id
 	);
 
 	return (
 		<>
 			<NavBar user={client} setUser={setUser} />
 			<div>
-				{selectedExercise.map((exercise, index) => (
+				{filteredExercise.map((exercise, index) => (
 					<div key={index}>
 						<h1>{exercise.name}</h1>
 						<img src={exercise.image} alt={exercise.name} />
@@ -54,7 +57,7 @@ function MoreInfo({
 				</ul>
 				{reviewFlag ? (
 					<ReviewForm
-						exercise={selectedExercise}
+						exercise={filteredExercise}
 						client={client}
 						onReviewSubmit={onReviewSubmit}
 						setReviewFlag={setReviewFlag}
