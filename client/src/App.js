@@ -12,7 +12,6 @@ function App() {
 	const [user, setUser] = useState("");
 	const [exercises, setExercises] = useState([]);
 	const [reviews, setReviews] = useState([]);
-	const [exerciseReviews, setExerciseReviews] = useState([]);
 
 	useEffect(() => {
 		fetch("/me").then((r) => {
@@ -66,7 +65,7 @@ function App() {
 		const updatedExerciseArray = exercises.filter(
 			(exercise) => exercise.id !== id
 		);
-		setExercises(...exercises, updatedExerciseArray);
+		setExercises(updatedExerciseArray);
 	};
 
 	return (

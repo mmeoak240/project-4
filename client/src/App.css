@@ -159,11 +159,31 @@ button {
 }
 
 .title {
-	font-size: 64px;
+	font-size: 74px;
 	font-family: "Russo One", sans-serif;
 	color: white;
 	position: absolute;
-	top: 235px;
+	top: 220px;
+	width: 100%;
+	text-align: center;
+}
+
+.homeContent {
+	font-size: 40px;
+	font-family: "Russo One", sans-serif;
+	color: white;
+	position: absolute;
+	top: 500px;
+	width: 100%;
+	text-align: center;
+}
+
+.homeFooter {
+	font-size: 15px;
+	font-family: "Russo One", sans-serif;
+	color: white;
+	position: absolute;
+	bottom: 50px;
 	width: 100%;
 	text-align: center;
 }

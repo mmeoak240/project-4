@@ -19,12 +19,12 @@ function MoreInfo({
 
 	const { name } = useParams();
 
-	// useEffect(() => {
-	const filteredReviews = reviews.filter(
-		(review) => review.exercise_id === filteredExercise[0].id
-	);
-	setExerciseReviews(filteredReviews);
-	// }, [reviews]);
+	useEffect(() => {
+		const filteredReviews = reviews.filter(
+			(review) => review.exercise_id === filteredExercise[0].id
+		);
+		setExerciseReviews(filteredReviews);
+	}, [reviews]);
 
 	const handleReviewClick = () => {
 		setReviewFlag((reviewFlag) => !reviewFlag);
