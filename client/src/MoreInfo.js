@@ -19,6 +19,10 @@ function MoreInfo({
 
 	const { name } = useParams();
 
+	const filteredExercise = exercises.filter(
+		(exercise) => exercise.name === name
+	);
+
 	useEffect(() => {
 		const filteredReviews = reviews.filter(
 			(review) => review.exercise_id === filteredExercise[0].id
@@ -30,9 +34,7 @@ function MoreInfo({
 		setReviewFlag((reviewFlag) => !reviewFlag);
 	};
 
-	const filteredExercise = exercises.filter(
-		(exercise) => exercise.name === name
-	);
+	console.log(filteredExercise);
 
 	return (
 		<>

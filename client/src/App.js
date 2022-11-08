@@ -27,6 +27,7 @@ function App() {
 			.then((data) => setExercises(data));
 	}, []);
 
+
 	useEffect(() => {
 		fetch("/reviews")
 			.then((r) => r.json())
@@ -57,7 +58,6 @@ function App() {
 			}
 			return hash;
 		});
-		console.log(updatedReviewsArray);
 		setReviews(updatedReviewsArray);
 	};
 
