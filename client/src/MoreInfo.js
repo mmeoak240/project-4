@@ -9,46 +9,48 @@ function MoreInfo({
 	exercises,
 	client,
 	setUser,
-	reviews,
 	onReviewSubmit,
 	onDeleteReview,
 	handleUpdateReview,
 }) {
 	const [reviewFlag, setReviewFlag] = useState(false);
-	const [exerciseReviews, setExerciseReviews] = useState([]);
 
 	const { name } = useParams();
 
-	const filteredExercise = exercises.filter(
-		(exercise) => exercise.name === name
-	);
+	const selectedExercise = exercises.find((exercise) => exercise.name === name);
 
-	useEffect(() => {
-		const filteredReviews = reviews.filter(
-			(review) => review.exercise_id === filteredExercise[0].id
-		);
-		setExerciseReviews(filteredReviews);
-	}, [reviews]);
+	// useEffect(() => {
+	// 	const filteredReviews = reviews.filter(
+	// 		(review) => review.exercise_id === filteredExercise[0].id
+	// 	);
+	// 	setExerciseReviews(filteredReviews);
+	// }, [reviews]);
 
 	const handleReviewClick = () => {
 		setReviewFlag((reviewFlag) => !reviewFlag);
+		console.log(selectedExercise);
 	};
-
-	console.log(filteredExercise);
 
 	return (
 		<>
 			<NavBar user={client} setUser={setUser} />
 			<div>
-				{filteredExercise.map((exercise, index) => (
+				<div key={selectedExercise.id}>
+					<h1>{selectedExercise.name}</h1>
+					<img src={selectedExercise.image} alt={selectedExercise.name} />
+					<p style={{ color: "white", width: 500 }}>
+						{selectedExercise.description}
+					</p>
+				</div>
+				{/* {filteredExercise.map((exercise, index) => (
 					<div key={index}>
 						<h1>{exercise.name}</h1>
 						<img src={exercise.image} alt={exercise.name} />
 						<p style={{ color: "white", width: 500 }}>{exercise.description}</p>
 					</div>
-				))}
+				))} */}
 				<ul>
-					{exerciseReviews.map((review) => (
+					{selectedExercise.reviews.map((review) => (
 						<Review
 							review={review}
 							onDeleteReview={onDeleteReview}
@@ -59,7 +61,7 @@ function MoreInfo({
 				</ul>
 				{reviewFlag ? (
 					<ReviewForm
-						exercise={filteredExercise}
+						selectedExercise={selectedExercise}
 						client={client}
 						onReviewSubmit={onReviewSubmit}
 						setReviewFlag={setReviewFlag}

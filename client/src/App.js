@@ -27,7 +27,6 @@ function App() {
 			.then((data) => setExercises(data));
 	}, []);
 
-
 	useEffect(() => {
 		fetch("/reviews")
 			.then((r) => r.json())

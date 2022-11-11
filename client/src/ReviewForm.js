@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({ exercise, client, onReviewSubmit, setReviewFlag }) => {
+const ReviewForm = ({
+	selectedExercise,
+	client,
+	onReviewSubmit,
+	setReviewFlag,
+}) => {
 	const [content, setContent] = useState("");
 	const [errors, setErrors] = useState([]);
-
-	const selectedExercise = exercise[0];
 
 	// function handleSubmit(e) {
 	// 	e.preventDefault();
