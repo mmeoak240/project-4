@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
  resources :reviews, only: [:index, :show, :create, :update, :destroy]
-resources :exercises, only: [:index, :create, :destroy]
+resources :exercises, only: [:index, :create, :destroy, :show]
   
  post "/signup", to: "clients#create"
  get "/me", to: "clients#show"
