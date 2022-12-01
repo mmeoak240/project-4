@@ -6,6 +6,7 @@ import NavBar from "./NavBar";
 import Review from "./Review";
 
 function MoreInfo({
+	exercise,
 	exercises,
 	client,
 	setUser,
@@ -13,34 +14,42 @@ function MoreInfo({
 	onDeleteReview,
 	handleUpdateReview,
 }) {
-	const [reviewFlag, setReviewFlag] = useState(false);
+	// const [testExercise, setTestExercise] = useState({
+	// 	name: "",
+	// 	image: "",
+	// 	description: "",
+	// 	reviews: [],
+	// 	clients: [],
+	// });
 
 	const { name } = useParams();
 
-	const selectedExercise = exercises.find((exercise) => exercise.name === name);
-
 	// useEffect(() => {
-	// 	const filteredReviews = reviews.filter(
-	// 		(review) => review.exercise_id === filteredExercise[0].id
-	// 	);
-	// 	setExerciseReviews(filteredReviews);
-	// }, [reviews]);
+	// 	console.log("working");
+	// 	const selectedExercise = exercises.find((exercise) => {
+	// 		console.log(name);
+	// 		console.log(exercise.name);
+	// 		return exercise.name === name;
+	// 	});
+	// 	setTestExercise(selectedExercise);
+	// }, []);
+
+	// console.log(testExercise);
+
+	const [reviewFlag, setReviewFlag] = useState(false);
 
 	const handleReviewClick = () => {
 		setReviewFlag((reviewFlag) => !reviewFlag);
-		console.log(selectedExercise);
 	};
 
 	return (
 		<>
-			<NavBar user={client} setUser={setUser} />
+			{/* <NavBar user={client} setUser={setUser} /> */}
 			<div>
-				<div key={selectedExercise.id}>
-					<h1>{selectedExercise.name}</h1>
-					<img src={selectedExercise.image} alt={selectedExercise.name} />
-					<p style={{ color: "white", width: 500 }}>
-						{selectedExercise.description}
-					</p>
+				<div key={exercise.id}>
+					<h1 style={{ color: "white" }}>{exercise.name}</h1>
+					{/* <img src={exercise.image} alt={exercise.name} /> */}
+					<p style={{ color: "white", width: 500 }}>{exercise.description}</p>
 				</div>
 				{/* {filteredExercise.map((exercise, index) => (
 					<div key={index}>
@@ -50,7 +59,7 @@ function MoreInfo({
 					</div>
 				))} */}
 				<ul>
-					{selectedExercise.reviews.map((review) => (
+					{exercise.reviews.map((review) => (
 						<Review
 							review={review}
 							onDeleteReview={onDeleteReview}
@@ -61,7 +70,7 @@ function MoreInfo({
 				</ul>
 				{reviewFlag ? (
 					<ReviewForm
-						selectedExercise={selectedExercise}
+						exercise={exercise}
 						client={client}
 						onReviewSubmit={onReviewSubmit}
 						setReviewFlag={setReviewFlag}

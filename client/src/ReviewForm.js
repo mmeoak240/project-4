@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-const ReviewForm = ({
-	selectedExercise,
-	client,
-	onReviewSubmit,
-	setReviewFlag,
-}) => {
+const ReviewForm = ({ exercise, client, onReviewSubmit, setReviewFlag }) => {
 	const [content, setContent] = useState("");
 	const [errors, setErrors] = useState([]);
 
@@ -24,7 +19,7 @@ const ReviewForm = ({
 			body: JSON.stringify({
 				username: client.username,
 				content,
-				exercise_id: selectedExercise.id,
+				exercise_id: exercise.id,
 				client_id: client.id,
 			}),
 		}).then((r) => {

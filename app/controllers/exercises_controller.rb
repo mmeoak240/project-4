@@ -24,7 +24,7 @@ class ExercisesController < ApplicationController
 end
 
 def destroy
-  exercise = Exercise.find_by(name:params[:id])
+  exercise = Exercise.find_by(id:params[:id])
   if exercise
     exercise.destroy
     head :no_content

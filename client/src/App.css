@@ -11,14 +11,14 @@ body,
 html {
 	height: 100%;
 }
-.background {
+/* .background {
 	width: 430px;
 	height: 520px;
 	position: absolute;
 	transform: translate(-50%, -50%);
 	left: 50%;
 	top: 50%;
-}
+} */
 .background .shape {
 	height: 200px;
 	width: 200px;
@@ -168,6 +168,16 @@ button {
 	text-align: center;
 }
 
+.exerciseTitle {
+	font-size: 74px;
+	font-family: "Russo One", sans-serif;
+	color: white;
+	position: absolute;
+	top: 150;
+	width: 100%;
+	text-align: center;
+}
+
 .homeContent {
 	font-size: 40px;
 	font-family: "Russo One", sans-serif;
@@ -194,6 +204,7 @@ button {
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-image: url("https://i.pinimg.com/originals/1c/9e/29/1c9e2907f354c4ec2ea575e21cfb2343.jpg");
+	background-attachment: fixed;
 }
 
 #exerciseContainer {

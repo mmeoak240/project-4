@@ -5,6 +5,7 @@ import "./App.css";
 function Login({ onLogin }) {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [errors, setErrors] = useState([]);
 
 	function handleSubmit(e) {
 		e.preventDefault();
@@ -17,6 +18,8 @@ function Login({ onLogin }) {
 		}).then((r) => {
 			if (r.ok) {
 				r.json().then((client) => onLogin(client));
+			} else {
+				r.json().then((error) => setErrors(error.error));
 			}
 			setUsername("");
 			setPassword("");
@@ -62,6 +65,9 @@ function Login({ onLogin }) {
 						<i class="fab fa-facebook"></i> Facebook
 					</div>
 				</div>
+				<ul>
+					<p>{errors}</p>
+				</ul>
 			</form>
 		</body>
 	);

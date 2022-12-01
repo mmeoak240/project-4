@@ -10,7 +10,7 @@ next run `bash'rails s'` to get your server up and running
 lastly run `bash'run npm start --prefix client'` to open up the application in your browser
 
 Features
-A user may sign up for an account and sign in using those credentials(there is also an admin log in that grants access to additional functionality). Once logged in the user can visit the "Exercises" page to view the list of exercises that have been created by the applications creator. While on the "Exercises" page the user may click "More info" to view a description of the selected exercise. While viewing the more info page the user will have the opportunity to write a review about the exercise and post it with their username being attached. The user will also be able to edit and delete their reviews. As the admin you have the added option to create exercises.
+A user may sign up for an account and sign in using those credentials(there is also an admin login that grants access to additional functionality). Once logged in the user can visit the "Exercises" page to view the list of exercises. While on the "Exercises" page the user may click "More info" to view a description of the selected exercise. While viewing the more info page the users will have the opportunity to write a review about the exercise and post it with their username being attached. The user will also be able to edit and delete their reviews. As the admin you have the added option to create exercises.
 
 Pending Features
 The ability for the user to build routines by adding exercises to a personal routine page.
@@ -27,7 +27,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-Last updated October 14, 2022
+Last updated November 30, 2022
 
 <!-- # Getting Started with Create React App
 

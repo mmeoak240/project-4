@@ -37,33 +37,62 @@ function App() {
 		setUser(client);
 	};
 
-	const onReviewSubmit = (review) => {
-		setReviews([review, ...reviews]);
+	const onReviewSubmit = (newReview) => {
+		const updatedExercisesArray = exercises.map((exercise) => {
+			if (exercise.id === newReview.exercise_id) {
+				exercise.reviews.unshift(newReview);
+				return exercise;
+			} else {
+				return exercise;
+			}
+		});
+		setExercises(updatedExercisesArray);
 	};
 
 	const onExerciseSubmit = (exercise) => {
 		setExercises([...exercises, exercise]);
 	};
 
-	const handleDeleteReview = (id) => {
-		const updatedReviewsArray = reviews.filter((review) => review.id !== id);
-		setReviews(updatedReviewsArray);
+	const handleDeleteReview = (deletedReview) => {
+		console.log(deletedReview);
+		const updatedExercisesArray = exercises.map((exercise) => {
+			if (exercise.id == deletedReview.exercise_id) {
+				const updatedReviewsArray = exercise.reviews.filter(
+					(review) => review.id != deletedReview.id
+				);
+				exercise.reviews = updatedReviewsArray;
+				return exercise;
+			} else {
+				return exercise;
+			}
+		});
+
+		setExercises(updatedExercisesArray);
 	};
 
-	const handleUpdateReview = (review) => {
-		const updatedReviewsArray = reviews.map((hash) => {
-			if (hash.id === review.id) {
-				return { ...hash, content: review.content };
+	const handleUpdateReview = (updatedReview) => {
+		const updatedExercisesArray = exercises.map((exercise) => {
+			if (exercise.id === updatedReview.exercise_id) {
+				const updatedReviewsArray = exercise.reviews.map((review) => {
+					if (review.id === updatedReview.id)
+						review.content = updatedReview.content;
+
+					return review;
+				});
+				exercise.reviews = updatedReviewsArray;
+				return exercise;
+			} else {
+				return exercise;
 			}
-			return hash;
 		});
-		setReviews(updatedReviewsArray);
+		setExercises(updatedExercisesArray);
 	};
 
 	const handleDeleteExercise = (id) => {
 		const updatedExerciseArray = exercises.filter(
 			(exercise) => exercise.id !== id
 		);
+		console.log(updatedExerciseArray);
 		setExercises(updatedExerciseArray);
 	};
 
@@ -81,19 +110,21 @@ function App() {
 								setUser={setUser}
 								exercises={exercises}
 								handleDeleteExercise={handleDeleteExercise}
-							/>
-						</Route>
-						<Route path="/exercises/:name">
-							<MoreInfo
-								exercises={exercises}
-								client={user}
-								setUser={setUser}
-								reviews={reviews}
 								onReviewSubmit={onReviewSubmit}
 								onDeleteReview={handleDeleteReview}
 								handleUpdateReview={handleUpdateReview}
 							/>
 						</Route>
+						{/* <Route path="/exercises/:name">
+							<MoreInfo
+								exercises={exercises}
+								client={user}
+								setUser={setUser}
+								onReviewSubmit={onReviewSubmit}
+								onDeleteReview={handleDeleteReview}
+								handleUpdateReview={handleUpdateReview}
+							/>
+						</Route> */}
 						<Route path="/exerciseForm">
 							<ExerciseForm
 								onExerciseSubmit={onExerciseSubmit}

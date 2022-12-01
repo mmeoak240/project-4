@@ -7,12 +7,15 @@ const ExerciseContainer = ({
 	setUser,
 	exercises,
 	handleDeleteExercise,
+	onDeleteReview,
+	onReviewSubmit,
+	handleUpdateReview,
 }) => {
 	return (
 		<>
 			<NavBar user={user} setUser={setUser} />
 			<div>
-				<h1 className="title" style={{ color: "white" }}>
+				<h1 className="exerciseTitle" style={{ color: "white" }}>
 					Exercises
 				</h1>
 				<div id="exerciseContainer">
@@ -22,6 +25,9 @@ const ExerciseContainer = ({
 							key={exercise.id}
 							onDeleteExercise={handleDeleteExercise}
 							user={user}
+							onReviewSubmit={onReviewSubmit}
+							onDeleteReview={onDeleteReview}
+							handleUpdateReview={handleUpdateReview}
 						/>
 					))}
 				</div>

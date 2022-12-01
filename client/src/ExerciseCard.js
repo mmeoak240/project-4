@@ -1,16 +1,31 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import MoreInfo from "./MoreInfo";
 
-const ExerciseCard = ({ exercise, onDeleteExercise, user }) => {
+const ExerciseCard = ({
+	exercise,
+	onDeleteExercise,
+	user,
+	setUser,
+	onReviewSubmit,
+	handleUpdateReview,
+	onDeleteReview,
+}) => {
 	const handleDeleteClick = (exercise) => {
 		// console.log(review);
-		fetch(`/exercises/${exercise.name}`, {
+		fetch(`/exercises/${exercise.id}`, {
 			method: "DELETE",
 		}).then((r) => {
 			if (r.ok) {
 				onDeleteExercise(exercise.id);
 			}
 		});
+	};
+
+	const [infoFlag, setInfoFlag] = useState(false);
+
+	const handleInfoClick = () => {
+		setInfoFlag((infoFlag) => !infoFlag);
 	};
 
 	const renderExercise = (
@@ -39,8 +54,21 @@ const ExerciseCard = ({ exercise, onDeleteExercise, user }) => {
 				</button>
 			) : null}
 			<p>{renderExercise}</p>
+			{infoFlag ? (
+				<MoreInfo
+					exercise={exercise}
+					client={user}
+					setUser={setUser}
+					onReviewSubmit={onReviewSubmit}
+					onDeleteReview={onDeleteReview}
+					handleUpdateReview={handleUpdateReview}
+				/>
+			) : null}
+			<button onClick={handleInfoClick} id="reviewBtn">
+				{infoFlag ? "Close" : "More Info"}
+			</button>
 
-			<Link to={`/exercises/${exercise.name}`}>More Info</Link>
+			{/* <Link to={`/exercises/${exercise.name}`}>More Info</Link> */}
 		</div>
 	);
 };
